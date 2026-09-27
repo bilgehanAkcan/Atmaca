@@ -1,0 +1,30 @@
+[project]
+name = "baseguard"
+version = "0.1.0"
+description = "Stage 2 LLM agent: drone detections + vehicle tracks + field reports -> grounded risk brief"
+requires-python = ">=3.10"
+dependencies = [
+  "pydantic>=2",
+  "pydantic-settings",
+  "numpy",
+  "scipy",
+  "langchain-core",
+  "langchain-openai",
+  "langchain-groq",
+  "fastapi",
+  "uvicorn",
+  "ultralytics",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "httpx", "ruff", "black"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
